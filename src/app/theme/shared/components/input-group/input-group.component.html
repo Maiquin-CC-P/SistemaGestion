@@ -1,0 +1,32 @@
+<div class="form-group">
+    <label for="" class="form-label">{{labelText}}</label>
+    <div class="input-group mb-3">
+        @if (type === 'file') {
+            <input type="file" class="form-control"
+            (change)="onChange($event)" [disabled]="controlDisabled"/>
+        }
+        @else if(control) {
+        <input type="{{type}}" class="form-control" placeholder="{{placeHolder}}" aria-label="Recipient's username"
+            aria-describedby="button-addon2" [formControl]="control" [ngClass]="{
+                    'is-invalid': isValid
+                  }" (keyup)="onChange($event)"/>
+        } @else {
+        <input type="{{type}}" class="form-control" placeholder="{{placeHolder}}" aria-label="Recipient's username"
+            aria-describedby="button-addon2" [(ngModel)]="model" [ngClass]="{
+                'is-invalid': isValid
+              }" (keyup)="onChange($event)" [disabled]="controlDisabled"/>
+        }
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="onSendEvent()"
+            [disabled]="btnDisabled"> <i class="{{icon}} f-20 h3 me-3 wid-30 text-center"></i> </button>
+        @if (newButton) {
+        <button class="btn btn-outline-{{newButton.color}}" type="button" id="newButton" (click)="onNewEventClick()"> <i
+                class="{{newButton.icon}} f-20 h3 me-3 wid-30 text-center"></i> </button>
+        }
+        @if (isValid) {
+        <label class="error jquery-validation-error small form-text invalid-feedback">Este
+            campo es
+            obligatorio.</label>
+        }
+        <ng-content select="[valid-content]"></ng-content>
+    </div>
+</div>

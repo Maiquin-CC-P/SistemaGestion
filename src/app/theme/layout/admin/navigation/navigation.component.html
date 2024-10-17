@@ -1,0 +1,16 @@
+<nav class="">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <!-- [ Header Top-bar ] start -->
+      <a [routerLink]="['/default/']" class="b-brand">
+        <!-- ========   change your logo hear   ============ -->
+        <img src="assets/images/Web_2.png" alt="logo-img" class="logo logo-lg" />
+      </a>
+    </div>
+    <app-nav-content
+      (NavCollapsedMob)="navCollapseMob()"
+      (SubmenuCollapse)="navSubmenuCollapse()"
+      class="scroll-div w-100 compact"
+    ></app-nav-content>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label class="text-dark utble">Nro Semana</label>
+    @if (control) {
+    <ng-select placeholder="Seleccionar..." [items]="optNroSemana" (change)="onItemSelected($event)"
+        [clearable]="false" bindLabel="fechaInicio" bindValue="idSemana" [formControl]="control"
+        [readonly]="flagHabilitado">
+        <ng-template ng-option-tmp let-item="item">
+            <span class="ng-value-label"> {{ item.idSemana }} - {{ item.fechaInicio}} al {{ item.fechaFin }}</span>
+          </ng-template>
+    </ng-select>
+    }
+</div>

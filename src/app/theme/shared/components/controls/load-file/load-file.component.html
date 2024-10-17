@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">        
+        <div class="d-flex justify-content-between">
+            <h5 class="modal-title">Subir archivo</h5>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="col-12 d-flex flex-wrap gap-2">
+                <div class="d-flex align-items-center pt-2">
+                    <input type="file" class="form-control w-100" (change)="readExcelFile($event)"
+                    accept=".xlsx, .xls" [multiple]="false">
+                </div>
+                <div class="d-flex align-items-center pt-2">
+                    <button type="button" class="btn btn-info"><i class="ti ti-refresh align-text-bottom"></i>Subir</button>
+                </div>
+                <div class="card-body">
+                    <app-table-list [data]="list" [columns]="columns" [rowItem]="rowItem"
+                        [flagsDefautActions]="{ edit: false, delete: false }"></app-table-list>
+                </div>
+                            <!-- <div class="d-flex align-items-center pt-2">
+                                <button type="button" class="btn btn-info"><i
+                                class="ti ti-refresh align-text-bottom" (click)="onSearchFilter()"></i>Descargar Plantilla</button>
+                            </div> -->
+            </div>
+        </div>
+    </div>    
+    <!-- <div class="card-body">
+        <app-table-list [data]="list" [columns]="columns" [rowItem]="rowItem"
+            [flagsDefautActions]="{ edit: false, delete: true }" (deleteEvent)="onDelete($event)"></app-table-list>
+
+        <app-table-pagination [collectionSize]="settings.collectionSize" [page]="settings.page"
+            [pageSize]="settings.pageSize" (pageChange)="onRefresh($event)"></app-table-pagination>
+    </div> -->
+</div>

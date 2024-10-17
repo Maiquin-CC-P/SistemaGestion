@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title" id="mycardLabel1">Partida Principal</h4>
+        <button type="button" class="close" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="card-body" ngbAutofocus tabindex="0">
+        <form [formGroup]="formInsertUpdate">
+            <div class="row">
+                <div class="col-md-12">
+                    <app-week-drop-down [control]="formInsertUpdate.controls.idSemana" [idProyecto]="idProyecto"
+                        [flagHabilitado]="item !== null"></app-week-drop-down>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="text-dark utble">Partida</label>
+                        <ng-select placeholder="Seleccionar..." appendTo="body" [items]="optPartida" [clearable]="false"
+                            bindLabel="descripcion" bindValue="idColumna" formControlName="idPartida">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="codigo">Programado</label>
+                        <input type="text" formControlName="programado" class="form-control" placeholder="00.00"
+                            mask="separator" thousandSeparator="," />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="codigo">Ejecutado</label>
+                        <input type="text" formControlName="ejecutado" class="form-control" placeholder="00.00"
+                            mask="separator" thousandSeparator="," />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer" style="display: block !important;">
+        <div class="row">
+            <div class="col-md-12 col-12 d-flex justify-content-center">
+                <div>
+                    <button (click)="onSave()" class="btn btn-primary" rippleEffect type="submit">
+                        <span class="d-none d-sm-inline-block">Registrar</span>
+                    </button>
+                    &nbsp;
+                    <button (click)="close()" class="btn btn-secondary" rippleEffect type="submit">
+                        <span class="d-none d-sm-inline-block">Cancelar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

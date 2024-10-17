@@ -1,0 +1,15 @@
+@switch (type) {
+@case ('checkbox') {
+<input type="checkbox" class="form-check-input input-primary" [id]="id" [name]="name" [(ngModel)]="model"
+    (ngModelChange)="onModelChange($event)" [disabled]="isDisabled" />
+}
+@case ('file') {
+<input type="file" class="form-control" [id]="id" [name]="name" (change)="onChange($event)" [disabled]="isDisabled" />
+}
+@default {
+<input [type]="type" class="form-control" [id]="id" [name]="name" [(ngModel)]="model"
+    (ngModelChange)="onModelChange($event)" [disabled]="isDisabled" [ngClass]="{
+            'is-invalid': isValid
+          }" />
+}
+}

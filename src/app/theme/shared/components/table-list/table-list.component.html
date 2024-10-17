@@ -1,0 +1,41 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr class="header-table">
+                @if(!flagClckRow && (actions.length || flagsDefautActions.delete || flagsDefautActions.delete)) {<th>
+                    Acción</th>}
+                @for(column of columns; track column) {
+                <th>{{column}}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <ng-content select="[body-content]"></ng-content>
+            @for(row of data; track row; let i = $index)
+            {
+            <tr (click)="onSelectRow(row, i)" class="m-t-0 m-b-0" [ngClass]="{'selectRow': flagClckRow,
+                    'inactivo': row | inactivo,
+                    'seleccionado':  i === idRowSelect
+                }" [style.background-color]="row | colorSolicitud">
+                @if(!flagClckRow && (actions.length || flagsDefautActions.delete || flagsDefautActions.delete)) {
+                <td>
+                    <div class="d-flex">
+                        @for (item of actions; track $index) {
+                        <a href="javascript:void(0)" title="{{item.title}}"
+                            class="btn btn-outline-{{item.color}} btn-sm me-1"
+                            (click)="handleButtonClick(row, item.eventEmit)">
+                            <i class="feather {{item.icon}}"></i>
+                        </a>
+                        }
+                    </div>
+                </td>
+                }
+
+                @for(item of rowItem; track item) {
+                <td [title]="row[item]">{{row[item] | truncate:maxLength}}</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

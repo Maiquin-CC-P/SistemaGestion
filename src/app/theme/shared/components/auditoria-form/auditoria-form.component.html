@@ -1,0 +1,19 @@
+<button type="reset" class="btn btn-primary me-2" (click)="onOpenModal(auditoriaModal)">Auditoria</button>
+<ng-template #auditoriaModal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Auditoria</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Close click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <span class="audit-data-title">Creado por:</span>
+            <span class="audit-data">Usuario: {{usuarioCreacion}}</span>
+            <span class="audit-data">Fecha: {{fechaCreacion}}</span>
+            <span class="audit-data">Host: {{fechaCreacion}}</span>
+            <span class="audit-data-title pt-2">Editado por:</span>
+            <span class="audit-data">Usuario: {{usuarioModificacion}}</span>
+            <span class="audit-data">Fecha: {{fechaModificacion}}</span>
+            <span class="audit-data">Host: </span>
+        </div>
+    </div>
+</ng-template>

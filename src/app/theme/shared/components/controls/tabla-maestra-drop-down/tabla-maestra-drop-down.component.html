@@ -1,0 +1,14 @@
+
+<div class="form-group">
+    <label class="form-label">{{titulo}}</label>
+    @if (control) {
+        <ng-select [items]="optOptions" bindLabel="descripcion" bindValue="idColumna"
+        [formControl]="control" (change)="onChangeTM($event)" [clearable]="false">
+        </ng-select>
+    }
+    @else {
+        <ng-select [items]="optOptions" bindLabel="descripcion" bindValue="idColumna"
+        [(ngModel)]="model" (change)="onChangeTM($event)" [clearable]="false">
+        </ng-select>
+    }
+</div>

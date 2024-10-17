@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between flex-wrap gap-2">
+    <!-- <div class="col-md-3 col-12"> -->
+        <span>Total: {{collectionSize}}</span>
+    <!-- </div> -->
+    <!-- <div class="col-md-9 col-12 d-flex justify-content-between">
+        <span></span> -->
+        <ngb-pagination  [collectionSize]="collectionSize" [(page)]="settings.page" [pageSize]="pageSize" [maxSize]="5"
+            [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange($event)">
+            <ng-template ngbPaginationFirst><span class="ti ti-chevrons-left"
+                [class]="'font-weight-bolder'"></span></ng-template>
+            <ng-template ngbPaginationPrevious><span class="ti ti-chevron-left"
+                    [class]="'font-weight-bolder'"></span>
+            </ng-template>
+            <ng-template ngbPaginationNext><span class="ti ti-chevron-right"
+                    [class]="'font-weight-bolder'"></span>
+            </ng-template>
+            <ng-template ngbPaginationLast ><span class="ti ti-chevrons-right"
+                [class]="'font-weight-bolder'"></span></ng-template>
+        </ngb-pagination>
+    <!-- </div> -->
+</div>

@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <app-table-filter (openFormEvent)="onOpenForm($event)" (filterEvent)="onRefresh($event)"></app-table-filter>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12 col-12 mt-1">
+                <div class="table-responsive">
+                    <app-table-list [data]="list" [columns]="columns" [rowItem]="rowItem"
+                    (editEvent)="onOpenForm($event)" (deleteEvent)="onDelete($event)"
+                    [flagsDefautActions]="{ edit: true, delete: true }"></app-table-list>
+                </div>
+
+                <app-table-pagination [collectionSize]="settings.collectionSize" [page]="settings.page"
+                    [pageSize]="settings.pageSize" (pageChange)="onRefresh($event)"></app-table-pagination>
+            </div>
+        </div>
+    </div>
+</div>

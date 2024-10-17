@@ -1,0 +1,50 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr class="header-table">
+                @if (elemntHtml.show) {<th></th>}
+                @if(!flagClckRow && (actions.length || flagsDefautActions.delete || flagsDefautActions.delete)) {<th>
+                    Acción</th>}
+                @for(column of columns; track column) {
+                <th>{{column}}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <ng-content></ng-content>
+            </tr>
+            @for(row of data; track row; let i = $index)
+            {
+            <tr (click)="onSelectRow(row, i)" class="m-t-0 m-b-0" [ngClass]="{'selectRow': flagClckRow,
+                    'inactivo': row | inactivo,
+                    'seleccionado':  i === idRowSelect
+                }" [style.background-color]="row | colorSolicitud">
+                @if (elemntHtml.show) {
+                <td>
+                    <app-dynamic-control id="chk_{{i}}" name="chkn_{{i}}" [(model)]="row[elemntHtml.nameRow[0]]">
+                    </app-dynamic-control>
+                </td>
+                }
+                @if(!flagClckRow && (actions.length || flagsDefautActions.delete || flagsDefautActions.delete)) {
+                <td style="background-color: white !important;">
+                    <div class="d-flex">
+                        @for (item of actions; track $index) {
+                        <button href="javascript:void(0)" title="{{item.title}}"  [disabled]="false"
+                            class="btn btn-outline-{{item.color}} btn-sm me-1"
+                            (click)="handleButtonClick(row, item.eventEmit)">
+                            <i class="{{item.icon}}"></i>
+                        </button>
+                        }
+                    </div>
+                </td>
+                }
+
+                @for(item of rowItem; track item) {
+                <td [title]="row[item]">{{row[item] | truncate:maxLength}}</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

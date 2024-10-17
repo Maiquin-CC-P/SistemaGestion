@@ -1,0 +1,56 @@
+<div class="form-group">
+    <label for="" class="form-label">{{labelText}}</label>
+    <div class="input-group mb-3">
+        <!-- <input type="{{type}}" class="form-control" placeholder="{{placeHolder}}" aria-label="Recipient's username"
+            aria-describedby="button-addon2" [formControl]="control" [ngClass]="{
+                'is-invalid': isValid
+              }" /> -->
+        <!-- <ng-select [items]="data" [bindLabel]="dataItem[1].toString()" [bindValue]="dataItem[1].toString()" class="select-personalizado" class="form-control"
+            [clearable]="true" [formControl]="control">
+            <ng-template ng-option-tmp let-item="item">
+                @for (itemRow of dataItem; track $index) {
+                    <span class="ng-value-label"> {{ item[itemRow] + '-'}}</span>
+                }
+            </ng-template>
+        </ng-select> -->
+        <div class="dropdown" [class.open]="isOpen">
+            <!-- <button class="btn btn-primary dropdown-toggle" type="button" (click)="toggleDropdown()">
+                Select
+            </button> -->
+            <div class="input-group mb-3">
+                <input type="{{type}}" class="form-control" placeholder="{{placeHolder}}"
+                    aria-label="Recipient's username" aria-describedby="button-addon2" [formControl]="control"
+                    [ngClass]="{
+                        'is-invalid': isValid
+                      }" />
+                <button class="btn btn-primary dropdown-toggle" type="button" id="button-addon2"
+                    (click)="toggleDropdown()" [disabled]="btnDisabled"> <i
+                        class="{{icon}} f-20 h3 me-3 wid-30 text-center"></i> </button>
+            </div>
+            <div class="dropdown-menu" *ngIf="isOpen">
+                <app-table-filter (filterEvent)="onRefresh($event)" [flagBtnNew]="false"
+                    [flagEstado]="false"></app-table-filter>
+
+                <app-table-list [data]="listProductPage" [columns]="columns" [rowItem]="dataItem"
+                    [flagsDefautActions]="{ edit: false, delete: false }" (itemEvent)="onSelectItem($event)"
+                    [flagClckRow]="true">
+                </app-table-list>
+
+                <app-table-pagination [collectionSize]="settings.collectionSize" [page]="settings.page"
+                    [pageSize]="settings.pageSize" (pageChange)="onRefresh($event)"></app-table-pagination>
+
+            </div>
+        </div>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="onSendEvent()"
+            [disabled]="btnDisabled"> <i class="{{icon}} f-20 h3 me-3 wid-30 text-center"></i> </button>
+        @if (newButton) {
+        <button class="btn btn-outline-{{newButton.color}}" type="button" id="newButton" (click)="onNewEventClick()"> <i
+                class="{{newButton.icon}} f-20 h3 me-3 wid-30 text-center"></i> </button>
+        }
+        @if (isValid) {
+        <label class="error jquery-validation-error small form-text invalid-feedback">Este
+            campo es
+            obligatorio.</label>
+        }
+    </div>
+</div>

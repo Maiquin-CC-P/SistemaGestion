@@ -1,0 +1,168 @@
+<div class="ms-auto">
+  <ul class="list-unstyled">
+    <li appToggleFullScreen class="pc-h-item">
+      <a href="javascript:" title="click to theme view in full-screen" class="full-screen pc-head-link head-link-secondary me-0 mobile-menu"
+        ><i class="feather icon-maximize"></i
+      ></a>
+    </li>
+    <!-- <li>
+      <div class="dropdown pc-h-item pc-mega-menu" ngbDropdown>
+        <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <i class="ti ti-access-point"></i>
+        </a>
+        <div class="dropdown-menu pc-h-dropdown pc-mega-dmenu" ngbDropdownMenu>
+          <div class="row g-0">
+            <div class="col text-center image-block">
+              <img src="assets/images/pages/img-megamenu.svg" alt="image" class="img-fluid rounded" />
+            </div>
+            @for (section of componentSections; track section) {
+            <div class="col">
+              <h6 class="mega-title">{{ section.title }}</h6>
+              <ul class="pc-mega-list">
+                @for (item of section.items; track item) {
+                <li>
+                  <a [routerLink]="[item.url]" class="dropdown-item"><i class="fas fa-circle"></i> {{ item.title }}</a>
+                </li>
+                }
+              </ul>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </li> -->
+    <!-- <li>
+      <div class="dropdown pc-h-item" ngbDropdown>
+        <a class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <i class="ti ti-language"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <a href="javascript:" class="dropdown-item">
+            <span>English <small>(UK)</small></span>
+          </a>
+          <a href="javascript:" class="dropdown-item">
+            <span>français <small>(French)</small></span>
+          </a>
+          <a href="javascript:" class="dropdown-item">
+            <span>Română <small>(Romanian)</small></span>
+          </a>
+          <a href="javascript:" class="dropdown-item">
+            <span>中国人 <small>(Chinese)</small></span>
+          </a>
+        </div>
+      </div>
+    </li> -->
+    <!-- <li>
+      <div class="dropdown pc-h-item" ngbDropdown>
+        <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <i class="ti ti-bell"></i>
+        </a>
+        <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <div class="dropdown-header">
+            <a href="javascript:!" class="link-primary float-end text-decoration-underline">Mark as all read</a>
+            <h5>
+              All Notification
+              <span class="badge bg-warning rounded-pill ms-1">01</span>
+            </h5>
+          </div>
+          <ng-scrollbar style="height: calc(100vh - 215px)" visibility="hover">
+            <div class="dropdown-header px-0 text-wrap">
+              <div class="list-group list-group-flush w-100">
+                <div class="list-group-item">
+                  <select class="form-select">
+                    <option value="all">All Notification</option>
+                    <option value="new">New</option>
+                    <option value="unread">Unread</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                @for (item of notification; track item) {
+                <a class="list-group-item list-group-item-action">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      @if (item.iconType) {
+                      <div class="user-avtar {{ item.background }}"><i class="{{ item.icon }}"></i></div>
+                      } @else {
+                      <img src="{{ item.images }}" alt="user-image" class="user-avtar" />
+                      }
+                    </div>
+                    <div class="flex-grow-1 ms-1">
+                      <span class="float-end text-muted">{{ item.time }}</span>
+                      <h5>{{ item.title }}</h5>
+                      <p class="text-muted fs-6">{{ item.text }} </p>
+                      @if (item.badgeType) {
+                      <div class="badge rounded-pill bg-light-danger">Unread</div>
+                      <div class="badge rounded-pill bg-light-warning">New</div>
+                      } @if (item.mailType) {
+                      <button class="btn btn-sm btn-primary">Mail <i class="ti ti-brand-telegram"></i></button>
+                      } @if (item.imagesType) {
+                      <div class="notification-file d-flex p-3 bg-light-secondary rounded">
+                        <i class="ti ti-arrow-bar-to-down"></i>
+                        <h5 class="m-0">demo.jpg</h5>
+                      </div>
+                      } @if (item.conformation) {
+                      <div class="badge rounded-pill bg-light-success">Confirmation of Account</div>
+                      }
+                    </div>
+                  </div>
+                </a>
+                }
+              </div>
+            </div>
+          </ng-scrollbar>
+          <div class="dropdown-divider"></div>
+          <div class="text-center py-2">
+            <a href="javascript:!" class="link-primary">Mark as all read</a>
+          </div>
+        </div>
+      </div>
+    </li> -->
+     <li>
+      <div class="dropdown pc-h-item p-l-10" ngbDropdown>
+        <span>Sede: <strong>{{currentUser.empresaSede}}</strong> | Usuario: <strong>{{currentUser.usuario}}</strong> | Perfil: <strong>{{currentUser.perfil}}</strong>
+        </span>
+      </div>
+    </li>
+
+    <li>
+      <div class="dropdown pc-h-item header-user-profile" ngbDropdown>
+        <a class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar" />
+          <span>
+            <i class="ti ti-settings"></i>
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <div class="dropdown-header">
+            <h4><span class="small text-muted"> {{currentUser.usuario}}</span> </h4>
+            <p class="text-muted">{{currentUser.perfil}}</p>
+            <!-- <form class="header-search">
+              <i data-feather="search" class="feather feather-search icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search profile options" />
+            </form> 
+            <hr />-->
+            <ng-scrollbar style="height: calc(100vh - 280px)" visibility="hover">
+              <hr />
+              <!-- <a href="javascript:" class="dropdown-item">
+                <i class="ti ti-settings me-2"></i>
+                <span>Account Profile</span>
+              </a> -->
+              <a href="javascript:" class="dropdown-item" (click)="onGoSede()">
+                <i class="ti ti-user me-2"></i>
+                <span>Cambiar Sede</span>
+              </a>
+              <a href="javascript:" class="dropdown-item" (click)="onGoMenu()">
+                <i class="ti ti-user me-2"></i>
+                <span>Ir a Menú</span>
+              </a>
+              <a href="javascript:" class="dropdown-item" (click)="logout()">
+                <i class="ti ti-logout me-2"></i>
+                <span>Cerrar Sessión</span>
+              </a>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

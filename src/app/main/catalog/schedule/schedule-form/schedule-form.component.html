@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5 class="modal-title">Registro de Avance</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+        </div>
+    </div>
+    <div class="card-body" ngbAutofocus tabindex="0">
+        <form [formGroup]="formInsertUpdate">
+            <div class="row">
+                <div class="col-md-12">
+                    <app-week-drop-down [control]="formInsertUpdate.controls.semana" [idProyecto]="idProyecto"
+                        [flagHabilitado]="item !== null"></app-week-drop-down>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Progamado Semana (%):</label>
+                        <input type="number" class="form-control" formControlName="avanceProgramadoSem">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Progamado Acum. (%):</label>
+                        <input type="number" class="form-control" formControlName="avanceProgramado">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3"
+                            formControlName="flagReprogramado" />
+                        <label class="custom-control-label" for="customCheck3">Flag ReProgramado</label>
+                    </div>
+                </div>
+                @if (control.flagReprogramado.value) {
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Reprogamado Semana (%):</label>
+                        <input type="number" class="form-control" formControlName="avanceReProgramadoSem">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Reprogamado Acum. (%):</label>
+                        <input type="number" class="form-control" formControlName="avanceReProgramado">
+                    </div>
+                </div>
+                }
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Real Semana (%):
+                        </label>
+                        <input type="number" class="form-control" formControlName="avanceRealSem">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="">Avance Real Acum. (%):
+                        </label>
+                        <input type="number" class="form-control" formControlName="avanceReal">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="form-group text-center">
+            <button type="reset" class="btn btn-success me-2" (click)="onSave()">Guardar</button>
+            <button type="reset" class="btn btn-light-secondary" (click)="close()"> Cancel </button>
+        </div>
+    </div>
+</div>

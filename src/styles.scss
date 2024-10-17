@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+/**======================================================================
+=========================================================================
+Template Name: DashboardKit - Most Complete Bootstrap Admin Template
+Author: Phoenixcoded
+Support: support@phoenixcoded.net
+File: style.css
+=========================================================================
+=================================================================================== */
+
+// main framework
+@import 'scss/settings/preset-variables';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+$pc-body-bg: map-get($preset-colors, 'preset-1', 'body');
+$pc-blue: map-get($preset-colors, 'preset-1', 'primary');
+$pc-secondary: map-get($preset-colors, 'preset-1', 'secondary');
+@import 'scss/settings/custom-variables';
+@import 'scss/settings/theme-variables';
+@import 'scss/settings/general';
+
+// @import 'scss/themes/bootstrap';
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+// main framework
+@import 'scss/themes/generic';
+@import 'scss/themes/general';
+
+// Layouts
+@import 'scss/themes/layouts/layouts';
+@import 'scss/themes/layout/layout';
+
+// Componants
+@import 'scss/themes/components/components';
+
+@import 'scss/themes/customizer';
+// @import "scss/landing.scss";
+
+// fonts
+@import url('scss/fonts/berry/berry-icons.css'); /** custom font icons - berry **/
+@import 'scss/fonts/feather.css';
+@import 'scss/fonts/tabler-icons.min.css';
+@import 'scss/fonts/fontawesome.css';
+@import 'scss/fonts/material.css';
+
+// auth
+@import 'scss/themes/auth/auth';
+
+//  other
+@import 'scss/themes/other/other';
+@import 'scss/style-preset.scss';
+
+// custom plugins
+// @import 'scss/themes/plugins/plugins';
+// third party
+@import '../node_modules/angular-notifier/styles';
+
+[class='Roboto berry-rtl'] {
+  @import 'scss/themes/layout/style-rtl-utility';
+  @import 'node_modules/bootstrap/scss/utilities/api';
+}
+
+// pages
+@import 'scss/themes/pages/page';
+
+// text-editor
+@import '../node_modules/quill/dist/quill.bubble.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+
+@import 'scss/themes/pages//text-editor';
+
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 36px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.swal2-container {
+  z-index: 105000 !important; /* Puedes ajustar este valor según sea necesario */
+}

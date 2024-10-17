@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        @if (flagClckRow) {
+        <div class="d-flex justify-content-between">
+            <h5 class="modal-title">Gestión de Mantenimiento</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="onClose(true)"></button>
+        </div>
+        }
+        <app-table-filter (openFormEvent)="onOpenForm($event)" (filterEvent)="onRefresh($event)" [flagBtnNew]="!flagClckRow" [flagEstado]="!flagClckRow"></app-table-filter>
+    </div>
+    <div class="card-body">
+        <app-table-list [flagClckRow]="flagClckRow" (editEvent)="onOpenForm($event)" [data]="list" [columns]="columnsName" [rowItem]="rowItem"
+            (deleteEvent)="onDelete($event)" (itemEvent)="onSelectRow($event)"></app-table-list>
+
+        <app-table-pagination [collectionSize]="settings.collectionSize" [page]="settings.page"
+            [pageSize]="settings.pageSize" (pageChange)="onRefresh($event)"></app-table-pagination>
+    </div>
+</div>

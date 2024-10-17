@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center">
+    @if (!flagView) {
+    <button type="button" class="btn btn-icon btn-outline-primary d-inline-flex"
+        (click)="toggleVisibilityRecursive(false)">
+        <i class="ti ti-square-plus"></i>
+    </button>
+    }
+    @else {
+    <button type="button" class="btn btn-icon btn-outline-primary d-inline-flex"
+        (click)="toggleVisibilityRecursive(true)">
+        <i class="ti ti-square-minus"></i>
+    </button>
+    }
+</div>
